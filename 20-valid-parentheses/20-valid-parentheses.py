@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        brackets_map = {
+        brackets_map  = {
             ')': '(',
             '}': '{',
             ']': '['
@@ -18,4 +18,3 @@ class Solution(object):
             else:
                 return False
         return len(stack) == 0
-                
