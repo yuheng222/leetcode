@@ -9,7 +9,7 @@ class Solution(object):
         for price in prices:
             if price < min_so_far:
                 min_so_far = price
-            if price - min_so_far > max_profit:
+            elif price - min_so_far > max_profit:
                 max_profit = price - min_so_far
         return max_profit
             
