@@ -11,6 +11,9 @@ class Solution(object):
         :type val: int
         :rtype: TreeNode
         """
-        if not root or root.val == val:
-            return root
-        return self.searchBST(root.left, val) if val < root.val else self.searchBST(root.right, val)
+        while root and root.val != val:
+            if val < root.val:
+                root = root.left
+            else:
+                root = root.right
+        return root
