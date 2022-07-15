@@ -11,11 +11,11 @@ class Solution(object):
                 continue
             l, r = i + 1, len(nums) - 1
             while l < r:
-                total_sum = num + nums[l] + nums[r]
-                if total_sum < 0:
-                    l += 1
-                elif total_sum > 0:
+                num_sum = num + nums[l] + nums[r]
+                if num_sum > 0:
                     r -= 1
+                elif num_sum < 0:
+                    l += 1
                 else:
                     res.append([num, nums[l], nums[r]])
                     l += 1
