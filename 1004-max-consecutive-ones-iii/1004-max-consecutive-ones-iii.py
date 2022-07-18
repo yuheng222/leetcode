@@ -15,4 +15,3 @@ class Solution(object):
                 l += 1
             longest = max(longest, r - l + 1)
         return longest
-        
