@@ -14,5 +14,4 @@ class Solution(object):
             char_map[right_char] = r
             longest = max(longest, r - l + 1)
         return longest
-                
             
