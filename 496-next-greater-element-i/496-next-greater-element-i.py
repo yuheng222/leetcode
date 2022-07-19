@@ -7,10 +7,14 @@ class Solution(object):
         """
         stack = []
         table = {}
+        result = []
+        # iterate through the numbers in the second array
         for num in nums2:
+            # compare the current number with the previous number, if it is greater, add it to the hashmap
             while stack and num > stack[-1]:
                 table[stack.pop()] = num
             stack.append(num)
-            
-        return [table.get(num, -1) for num in nums1]
+        for num in nums1:
+            result.append(table.get(num, -1))
+        return result
         
