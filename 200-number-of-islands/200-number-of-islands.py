@@ -1,14 +1,18 @@
 class Solution(object):
-    def dfs(self, grid, i, j):
-        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]):
-            return
-        if grid[i][j] == '0':
-            return
-        grid[i][j] = '0'
-        self.dfs(grid, i + 1, j)
-        self.dfs(grid, i - 1, j)
-        self.dfs(grid, i, j + 1)
-        self.dfs(grid, i, j - 1)
+    def bfs(self, grid, i, j):
+        neighbours = collections.deque([(i, j)]) # append the first found land to the neighbours queue
+        while neighbours:
+            row, col = neighbours.popleft()
+            if row < 0 or row >= len(grid) or col < 0 or col >= len(grid[0]):
+                continue
+            if grid[row][col] == '0':
+                continue
+            grid[row][col] = '0'
+            # add neighbours into the queue
+            neighbours.extend([(row + 1, col)])
+            neighbours.extend([(row - 1, col)])
+            neighbours.extend([(row, col + 1)])
+            neighbours.extend([(row, col - 1)])
         
     def numIslands(self, grid):
         """
@@ -24,7 +28,7 @@ class Solution(object):
             for j in range(cols):
                 if grid[i][j] == '1':
                     total += 1
-                    self.dfs(grid, i, j)
+                    self.bfs(grid, i, j)
         return total
             
         
