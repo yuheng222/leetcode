@@ -1,16 +1,15 @@
 class Solution(object):
     def dfs(self, image, x, y, oldColor, newColor):
         if x < 0 or x >= len(image) or y < 0 or y >= len(image[0]):
-            return # if out of bounds, return
+            return
         if image[x][y] != oldColor:
-            return # if cell is not the same as the original color, it doesnt have to be filled
-        
+            return
         image[x][y] = newColor
         self.dfs(image, x + 1, y, oldColor, newColor)
         self.dfs(image, x - 1, y, oldColor, newColor)
         self.dfs(image, x, y + 1, oldColor, newColor)
         self.dfs(image, x, y - 1, oldColor, newColor)
-            
+        
     def floodFill(self, image, sr, sc, color):
         """
         :type image: List[List[int]]
@@ -22,6 +21,7 @@ class Solution(object):
         if image[sr][sc] != color:
             self.dfs(image, sr, sc, image[sr][sc], color)
         return image
+            
             
     
         
