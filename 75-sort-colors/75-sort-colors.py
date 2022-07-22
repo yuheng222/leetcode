@@ -7,12 +7,11 @@ class Solution:
         r = len(nums) - 1
         while curr <= r:
             if nums[curr] == 0:
-                nums[l], nums[curr] = nums[curr], nums[l] # swap left and curr
-                l += 1 # shift both the curr and left pointers
+                nums[l], nums[curr] = nums[curr], nums[l]
+                l += 1
                 curr += 1
             elif nums[curr] == 2:
                 nums[r], nums[curr] = nums[curr], nums[r]
-                r -= 1 # shift the right pointer
+                r -= 1
             else:
-                curr += 1 # else if curr = 1, just increment curr without swapping
-        
+                curr += 1
