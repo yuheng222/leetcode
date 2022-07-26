@@ -10,6 +10,5 @@ class Solution:
             heappush(heap, (dist, i))
         for i in range(k, len(points)):
             dist = -calculate_distance(points[i])
-            if dist > heap[0][0]:
-                heappushpop(heap, (dist, i))
+            heappushpop(heap, (dist, i))
         return [points[i] for _, i in heap]
