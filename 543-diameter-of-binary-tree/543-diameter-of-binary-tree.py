@@ -11,7 +11,6 @@ class Solution:
             nonlocal diameter
             if not root:
                 return 0
-            
             left_path = dfs(root.left)
             right_path = dfs(root.right)
             diameter = max(diameter, left_path + right_path)
