@@ -6,17 +6,17 @@
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        def dfs(root, targetSum, path):
-            if not root:
+        def dfs(node, targetSum, path):
+            if not node:
                 return 0
-            path.append(root.val)
+            path.append(node.val)
             path_sum, path_count = 0, 0
             for i in reversed(range(len(path))):
                 path_sum += path[i]
                 if path_sum == targetSum:
                     path_count += 1
-            path_count += dfs(root.left, targetSum, path)
-            path_count += dfs(root.right, targetSum, path)
-            path.pop() # backtrack - pop the node while moving up the call stack
+            path_count += dfs(node.left, targetSum, path)
+            path_count += dfs(node.right, targetSum, path)
+            path.pop()
             return path_count
         return dfs(root, targetSum, [])
