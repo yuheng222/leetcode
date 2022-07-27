@@ -1,13 +1,15 @@
 class Solution:
     def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
-        # initialize binary search bounds
-        left = 0
-        right = len(arr) - k
-        
-        while left < right:
-            mid = (left + right) // 2
-            if x - arr[mid] > arr[mid + k] - x:
-                left = mid + 1
+        l, r = 0, len(arr) - k
+        while l < r:
+            mid = (l + r) // 2
+            if arr[mid] == arr[mid + k]:
+                if x > arr[mid]:
+                    l = mid + 1
+                else:
+                    r = mid
+            elif abs(x - arr[mid]) > abs(x - arr[mid + k]):
+                l = mid + 1
             else:
-                right = mid
-        return arr[left:left + k]
+                r = mid
+        return arr[l: l + k]
