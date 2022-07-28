@@ -24,7 +24,7 @@ class MyHashMap:
             return
         else:
             bucket.remove(bucket[i])
-        
+            
     def getBucketNum(self, key):
         return key % self.size
     
@@ -34,10 +34,11 @@ class MyHashMap:
         for i, (k, v) in enumerate(bucket):
             if k == key:
                 return bucket, i
-        return bucket, - 1
+        return bucket, -1
+
+
+# [[(19: 20)], [], ...[]] x 2069
     
-
-
 # Your MyHashMap object will be instantiated and called as such:
 # obj = MyHashMap()
 # obj.put(key,value)
