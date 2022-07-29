@@ -9,18 +9,19 @@ class Solution:
                     r = mid - 1
                 elif target > nums[mid]:
                     l = mid + 1
-                else:
-                    target_index = mid # if target is found
-                    if find_max_index: # find the max index of the found number
+                else: # if target is found
+                    target_index = mid
+                    if find_max_index: # if find max index flag is set to true, look to the right
                         l = mid + 1
                     else:
-                        r = mid - 1 # else find the min index of the found number
+                        r = mid - 1
             return target_index
+        res = [-1, -1]
+        res[0] = binary_search(nums, target, False)
+        if res[0] != -1:
+            res[1] = binary_search(nums, target, True)
+        return res
                         
-        result = [-1, -1]
-        result[0] = binary_search(nums, target, False)
-        if result[0] != -1: # if target found, then run binary search again to locate 
-            result[1] = binary_search(nums, target, True)
-        return result
+                        
     
         
