@@ -10,7 +10,7 @@ class Solution:
             perms = self.permute(nums)
             for perm in perms:
                 perm.append(num)
+            nums.append(num)
             res.extend(perms)
-            nums.append(num) # append num back to nums
         return res
         
