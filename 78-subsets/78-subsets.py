@@ -1,11 +1,21 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        subsets = []
-        subsets.append([])
-        for num in nums:
-            n = len(subsets)
-            for i in range(n):
-                new_set = list(subsets[i])
-                new_set.append(num)
-                subsets.append(new_set)
-        return subsets
+        res = []
+        subset = []
+        
+        def dfs(i):
+            if i > len(nums) - 1:
+                res.append(list(subset))
+                return
+            
+            # left branch that includes the element
+            subset.append(nums[i])
+            dfs(i + 1)
+            
+            # right branch that excludes the element
+            subset.pop()
+            dfs(i + 1)
+            
+        dfs(0)
+        return res
+            
