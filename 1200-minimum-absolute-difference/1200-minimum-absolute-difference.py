@@ -4,7 +4,7 @@ class Solution:
         min_diff = float('inf')
         res = []
         for i in range(len(arr) - 1):
-            diff = arr[i + 1] - arr[i]
+            diff = arr[i+1] - arr[i]
             if diff == min_diff:
                 res.append([arr[i], arr[i+1]])
             elif diff < min_diff:
