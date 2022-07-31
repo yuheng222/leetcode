@@ -10,5 +10,3 @@ class Solution:
                 heappop(heap)
                 heappush(heap, nums[i])
         return heap[0]
-            
-        
