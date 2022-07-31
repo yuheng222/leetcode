@@ -1,7 +1,7 @@
 class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
-        res = []
         max_height = -1
+        res = []
         for i in reversed(range(len(heights))):
             if heights[i] > max_height:
                 res.append(i)
