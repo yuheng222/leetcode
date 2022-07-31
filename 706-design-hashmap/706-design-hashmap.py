@@ -25,8 +25,8 @@ class MyHashMap:
         if i < 0:
             return
         else:
-            bucket.remove(bucket[i])
-            
+            return bucket.remove(bucket[i])
+    
     def getBucketKey(self, key):
         return key % self.size
     
@@ -37,6 +37,8 @@ class MyHashMap:
             if bucket[i][0] == key:
                 return bucket, i
         return bucket, -1
+        
+
 
 
 # [[(19: 20)], [], ...[]] x 2069
