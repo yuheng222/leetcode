@@ -11,6 +11,6 @@ class Solution:
             heappush(heap, (freq, num))
             if len(heap) > k:
                 heappop(heap)
-        for tup in heap:
-            res.append(tup[1])
+        while heap:
+            res.append(heappop(heap)[1])
         return res
