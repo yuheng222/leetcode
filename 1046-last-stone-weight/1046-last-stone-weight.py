@@ -11,5 +11,5 @@ class Solution:
             num1 = heappop(heap)
             num2 = heappop(heap)
             if num1 != num2:
-                heappush(heap, -abs(num2 - num1))
+                heappush(heap, -(num2 - num1))
         return -heap[0] if heap else 0
