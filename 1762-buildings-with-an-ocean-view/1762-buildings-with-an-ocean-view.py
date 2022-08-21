@@ -7,3 +7,4 @@ class Solution:
                 res.append(i)
                 max_height = heights[i]
         return reversed(res)
+            
