@@ -8,10 +8,8 @@ class MyHashMap:
         bucket, i = self.getBucketIndex(key)
         if i < 0:
             bucket.append((key, value))
-            return
         else:
             bucket[i] = (key, value)
-            return
 
     def get(self, key: int) -> int:
         bucket, i = self.getBucketIndex(key)
@@ -25,7 +23,7 @@ class MyHashMap:
         if i < 0:
             return
         else:
-            return bucket.remove(bucket[i])
+            bucket.remove(bucket[i])
     
     def getBucketKey(self, key):
         return key % self.size
@@ -37,8 +35,8 @@ class MyHashMap:
             if bucket[i][0] == key:
                 return bucket, i
         return bucket, -1
+    
         
-
 
 
 # [[(19: 20)], [], ...[]] x 2069
