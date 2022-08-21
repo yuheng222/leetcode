@@ -14,3 +14,4 @@ class Solution:
         while heap:
             res.append(heappop(heap)[1])
         return res
+        
