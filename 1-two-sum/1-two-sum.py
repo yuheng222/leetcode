@@ -5,12 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        sum_dict = {}
+        complement_map = {}
         for i, num in enumerate(nums):
             complement = target - num
-            # if complement is not found in dict, add current number to dict
-            if complement not in sum_dict:
-                sum_dict[num] = i
-            # Else, return the index of the current number and the index of its complement
-            else:
-                return[i, sum_dict[complement]]
+            if complement in complement_map:
+                return [complement_map[complement], i]
+            complement_map[num] = i
+        return
