@@ -1,15 +1,13 @@
-from collections import defaultdict
-
-class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        res = defaultdict(list)
-        for s in strs:
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = {}
+        for string in strs:
             count = [0] * 26
-            for c in s:
-                count[ord(c) - ord('a')] += 1
-            res[tuple(count)].append(s)
+            for char in string:
+                count[ord(char) - ord('a')] += 1
+            if not res.get(tuple(count)):
+                res[tuple(count)] = []
+            res[tuple(count)].append(string)
         return res.values()
+        
+        
