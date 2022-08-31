@@ -5,9 +5,10 @@ class Solution:
             count = [0] * 26
             for char in string:
                 count[ord(char) - ord('a')] += 1
-            if not res.get(tuple(count)):
+            if tuple(count) not in res:
                 res[tuple(count)] = []
             res[tuple(count)].append(string)
         return res.values()
+                
         
         
