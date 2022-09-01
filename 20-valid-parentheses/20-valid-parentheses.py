@@ -9,11 +9,9 @@ class Solution:
         for bracket in s:
             if bracket in brackets_map:
                 stack.append(bracket)
+            elif stack and bracket == brackets_map[stack[-1]]:
+                stack.pop()
             else:
-                if not stack:
-                    return False
-                open_bracket = stack.pop()
-                if brackets_map[open_bracket] != bracket:
-                    return False
+                return False
         return len(stack) == 0
         
