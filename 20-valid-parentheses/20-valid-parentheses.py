@@ -1,20 +1,21 @@
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        brackets_map  = {
-            ')': '(',
-            '}': '{',
-            ']': '['
+class Solution:
+    def isValid(self, s: str) -> bool:
+        char_map = {
+            "(": ")",
+            "{": "}",
+            "[": "]"
         }
         stack = []
-        for bracket in s:
-            if bracket not in brackets_map:
-                stack.append(bracket)
-            elif stack and stack[-1] == brackets_map[bracket]:
-                stack.pop()
+        for char in s:
+            if char in char_map:
+                stack.append(char)
             else:
-                return False
-        return len(stack) == 0
+                if not stack:
+                    return False
+                open_bracket = stack.pop()
+                if char_map[open_bracket] != char:
+                    return False
+        if stack:
+            return False
+        return True
+        
