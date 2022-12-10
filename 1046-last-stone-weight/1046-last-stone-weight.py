@@ -8,8 +8,8 @@ class Solution:
         for stone in stones:
             heappush(heap, -stone)
         while len(heap) > 1:
-            num1 = heappop(heap)
-            num2 = heappop(heap)
-            if num1 != num2:
-                heappush(heap, -(num2 - num1))
+            stone1 = heappop(heap)
+            stone2 = heappop(heap)
+            if stone1 != stone2:
+                heappush(heap, -(stone2-stone1))
         return -heap[0] if heap else 0
