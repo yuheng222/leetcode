@@ -17,16 +17,13 @@ class LRUCache:
     
     def remove(self, node):
         prev, nxt = node.prev, node.next
-        prev.next = node.next
-        nxt.prev = prev
+        prev.next, nxt.prev = nxt, prev
     
     def insert(self, node):
         prev, nxt = self.right.prev, self.right
-        self.right.prev = node
         prev.next = nxt.prev = node
-        node.next = nxt
-        node.prev = prev
-
+        node.prev, node.next = prev, nxt
+        
     def get(self, key: int) -> int:
         if key in self.cache:
             self.remove(self.cache[key])
